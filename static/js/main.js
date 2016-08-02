@@ -2,7 +2,7 @@ console.log('linked');
 
 $(function(){
 
-  let title = "June"
+  let title = "January"
 
   let ctx = document.getElementById("chart");
   let myChart = new Chart(ctx, {
@@ -24,19 +24,27 @@ $(function(){
     e.preventDefault();
     let $children = $(e.target).children();
     let data = {
-      data1: $children.eq(0).val(),
-      data2: $children.eq(1).val(),
-      data3: $children.eq(2).val(),
+      month:    $children.eq(0).val(),
+      size:     $children.eq(1).val(),
+      temp:     $children.eq(2).val(),
+      fuel:     $children.eq(3).val(),
+      cpi:      $children.eq(4).val(),
+      unemp:    $children.eq(5).val(),
+      holiday:  $children.eq(6).val()
     }
     
-    let newData = [randomNumber(),randomNumber(),randomNumber(),randomNumber()]
-    
-    myChart.config.data.datasets[0].data = newData;
-    myChart.update()
-    // $.getJSON('/result',data)
-    //   .done(function(response){
-    //     console.log(response);
-    //   })
+    $.getJSON('/result',data)
+      .done(function(response){
+        console.log(response);
+
+        let newData = [randomNumber(),randomNumber(),randomNumber(),randomNumber()]
+        
+        myChart.config.data.datasets[0].data = newData;
+        let month = $children.eq(0).find('option:selected').text();
+        myChart.config.data.datasets[0].label = `${month} Predicted Sales`
+        myChart.update()
+
+      })
   }
 
   $('form').submit(graphUpdate);
