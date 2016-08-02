@@ -10,14 +10,14 @@ $(function(){
     data: {
       labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
       datasets: [{
-          label: `${title} Predicted Sales`,
-          data: [12, 19, 3, 5],
+          label: `Choose Data!`,
+          data: [0, 0, 0, 0],
       }]
     }
   });
 
   function randomNumber(){
-    return Math.round(Math.random()*10);
+    return Math.random();
   }
 
   function graphUpdate(e){
@@ -37,7 +37,9 @@ $(function(){
       .done(function(response){
         console.log(response);
 
-        let newData = [randomNumber(),randomNumber(),randomNumber(),randomNumber()]
+        let newData = response["weekly_results"].map(function(data){
+          return data * randomNumber();
+        })
         
         myChart.config.data.datasets[0].data = newData;
         let month = $children.eq(0).find('option:selected').text();
