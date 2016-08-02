@@ -3,11 +3,43 @@
 <head>
   <title>Walmart Sales</title>
   <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
   <script src="./static/js/main.js"></script>
 </head>
 <body>
-  <h1>Walmart Sales Predictor or whatever name we decide on bc that name sucks</h1>
+  <nav>
+    <img src="static/imgs/walmart.png">
+    <h1>WALMART PREDICTOR</h1>
+  </nav>
+
+  <div id="container">
+    <div id="chart-1">
+
+      <form>
+        <select>
+          <option val="1">Option 1</option>
+          <option val="2">Option 2</option>
+          <option val="3">Option 3</option>
+        </select>
+        <select>
+          <option val="1">Option 1</option>
+          <option val="2">Option 2</option>
+          <option val="3">Option 3</option>
+        </select>
+        <select>
+          <option val="1">Option 1</option>
+          <option val="2">Option 2</option>
+          <option val="3">Option 3</option>
+        </select>
+        <input type="submit" value="Update">
+      </form>
+
+      <div class="chart-container">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
