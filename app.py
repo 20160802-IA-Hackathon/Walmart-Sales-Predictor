@@ -35,9 +35,17 @@ def result():
     holiday = float(flask.request.args['holiday'])
     year = 2016
 
-    item = np.array([size, temp, fuel, cpi, unemp, holiday, year, month]).reshape(1, -1)
-    predicted = PREDICTOR.predict(item)
-    weekly_results = [int(predicted)] * 4
+    monthly_features = [size, temp, fuel, cpi, unemp, holiday, year, month]
+
+    Xs = []
+    for day in [1, 7, 14, 21]:
+        item = monthly_features + [day]
+        Xs.append(item)
+
+    predicted = PREDICTOR.predict(Xs)
+
+
+    weekly_results = list(predicted)
 
     # return str(weekly_results)
     result = {'weekly_results': weekly_results}
