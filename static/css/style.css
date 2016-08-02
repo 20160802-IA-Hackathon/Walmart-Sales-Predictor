@@ -58,6 +58,9 @@ form > * {
   display: block;
   width: 100%;
   padding: 0.5em 0;
+  border-radius: 2px;
+  border: 1px solid lavender;
+  text-align: center;
 }
 
 form > *:not(:first-child) {
