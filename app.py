@@ -1,7 +1,6 @@
 import flask
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
 
 #---------- MODEL IN MEMORY ----------------#
 
@@ -15,7 +14,9 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def welcome():
-   return '''welcome to the app. Go <a href='/result'> here</a>.'''
+   with open("index.html", 'r') as viz_file:
+       return viz_file.read()
+ #   return '''welcome to the app. Go <a href='/result'> here</a>.'''
 
 @app.route('/result', methods=['POST', 'GET'])
 def result():
