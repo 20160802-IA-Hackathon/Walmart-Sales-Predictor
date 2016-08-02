@@ -14,6 +14,11 @@ $(function(){
           data: [1, 1, 1, 1],
       }]
     }
+  },
+  {
+    scaleOverride: true,
+    scaleStartValue: 0,
+    scaleStepWidth: 100
   });
 
   function graphUpdate(e){
