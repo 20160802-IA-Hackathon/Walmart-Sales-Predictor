@@ -64,6 +64,12 @@ form > *:not(:first-child) {
   margin-top: 1em;
 }
 
+input:last-child {
+  background-color: deepskyblue;
+  color: white;
+  font-weight: bold;
+}
+
 .chart-container {
   width: 600px;
   height: 300px;
