@@ -23,9 +23,10 @@ nav * {
 }
 
 nav h1 {
-  color: gold;
+  color: #ffc448;
   margin-left: 0.5em;
   font-size: 48px;
+  text-shadow: 3px 3px #028cbb;
 }
 
 nav h1::first-letter {
