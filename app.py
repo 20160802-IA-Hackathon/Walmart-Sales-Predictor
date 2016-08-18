@@ -16,6 +16,9 @@ weekly_results = list(np.random.randint(1000, 700000, 4))
 # Initialize the app
 app = flask.Flask(__name__)
 
+#To deploy on AWS, run this:
+# app._static_folder = '/var/www/html/Walmart-Sales-Predictor/'
+
 @app.route('/')
 def welcome():
    with open("index.html", 'r') as viz_file:
@@ -54,8 +57,4 @@ def result():
 
 if __name__ == '__main__':
     '''Connects to the server'''
-
-    HOST = '127.0.0.1'
-    PORT = '4000'
-
-    app.run(HOST, PORT)
+    app.run()
